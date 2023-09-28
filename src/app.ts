@@ -15,6 +15,9 @@ import db from '../config/db'
 // Routes
 import router from './router'
 
+//Logger
+import Logger from '../config/logger';
+
 app.use('/api/', router);
 
 // app port
@@ -24,5 +27,5 @@ app.listen(3000, async() => {
 
     await db();
 
-    console.log(`working in outpu ${port}`)
+    Logger.info(`working in outpu ${port}`)
 });
