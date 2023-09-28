@@ -18,7 +18,12 @@ import router from './router'
 //Logger
 import Logger from '../config/logger';
 
+// Middleware
+import morganMiddleware from './middleware/morganMiddleware';
+
+app.use(morganMiddleware)
 app.use('/api/', router);
+
 
 // app port
 const port = config.get<number>('port')
@@ -27,5 +32,5 @@ app.listen(3000, async() => {
 
     await db();
 
-    Logger.info(`working in outpu ${port}`)
+    Logger.info(`working in output ${port}`)
 });
